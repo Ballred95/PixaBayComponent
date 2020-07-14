@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Imagesearch from './image_search/imagesearch';
 
 const API_KEY = '17478784-735f4f1d92940cc091944cc00'
 
@@ -14,12 +15,11 @@ export default class App extends Component {
     const request = await fetch(url)
     const response = await request.json()
     this.setState({images: response.hits})
-    console.log(response.hits)
+    console.log(this.state.images)
+    
   }
 
-  componentDidMount() {
-    this.handleGetRequest()
-  }
+  
 
   render() {
 
@@ -27,7 +27,7 @@ export default class App extends Component {
 
     return (
       <div className='app'>
-        <div>App component</div>
+        <Imagesearch handleGetRequest ={this.handleGetRequest} />
       </div>
     );
   }
