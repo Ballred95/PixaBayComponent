@@ -31,6 +31,9 @@ export default class App extends Component {
     return (
       <div className='app'>
         <Imagesearch handleGetRequest ={this.handleGetRequest} />
+        {this.state.images.length > 0 && this.state.images.map((image) => {
+          return <img src = {image.previewURL} />
+        })}
       </div>
     );
   }
