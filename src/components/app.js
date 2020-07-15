@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Imagesearch from './image_search/imagesearch';
+import Imagelist from './imagelist/imagelist'
 
 const API_KEY = '17478784-735f4f1d92940cc091944cc00'
 
@@ -31,9 +32,8 @@ export default class App extends Component {
     return (
       <div className='app'>
         <Imagesearch handleGetRequest ={this.handleGetRequest} />
-        {this.state.images.length > 0 && this.state.images.map((image) => {
-          return <img src = {image.previewURL} />
-        })}
+        
+        <Imagelist images = {this.state.images} />
       </div>
     );
   }
